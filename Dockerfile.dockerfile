@@ -2,19 +2,24 @@
 
 
 # Dockerfile
-FROM node:10
+FROM node:alpine
 
-ENV  redisPort=3000
+ENV  jobid="testing" \
+     logdburl="mongodb://localhost:27017/" 
 
+ 
 WORKDIR /usr/function
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
+#COPY package*.json ./
+
+
+
+
+
 COPY package*.json ./
-
-
-
 
 
 RUN npm install
@@ -25,9 +30,8 @@ RUN npm install
 
 COPY . .
 
-#   expose any nessisary parts here
-EXPOSE 8080
 
+# no need to expose since i dont have any control thing 
 
 
 #   this will run the node app 
