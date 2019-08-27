@@ -4,7 +4,7 @@
 # Dockerfile
 FROM node:10
 
-ENV  
+ENV  redisPort=3000
 
 WORKDIR /usr/function
 
